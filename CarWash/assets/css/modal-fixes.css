@@ -1,0 +1,198 @@
+/* MODAL RESPONSIVENESS FIXES - AGGRESSIVE OVERRIDES */
+
+/* Force modals to be on top of everything */
+.modal {
+    z-index: 99999 !important;
+    position: fixed !important;
+}
+
+.modal-backdrop {
+    z-index: 99998 !important;
+}
+
+.modal-dialog {
+    z-index: 100000 !important;
+    position: relative !important;
+}
+
+.modal-content {
+    z-index: 100001 !important;
+    position: relative !important;
+    /* Brighten modal content */
+    background: rgba(30, 35, 50, 0.85) !important;
+    backdrop-filter: saturate(120%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(120%) blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.05) inset !important;
+    color: #f3f6ff !important;
+}
+
+.modal-header, .modal-footer {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.modal-title {
+    color: #ffffff !important;
+}
+
+/* Force all modal elements to be interactive */
+.modal *,
+.modal-dialog *,
+.modal-content * {
+    pointer-events: auto !important;
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+}
+
+/* Force form controls to be visible and interactive */
+.modal input,
+.modal select,
+.modal textarea,
+.modal button,
+.modal label {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    color: #f8fbff !important;
+}
+
+/* Specific fixes for different input types */
+.modal input[type="text"],
+.modal input[type="email"],
+.modal input[type="tel"],
+.modal input[type="number"],
+.modal input[type="date"],
+.modal input[type="time"],
+.modal input[type="password"] {
+    cursor: text !important;
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+.modal select {
+    cursor: pointer !important;
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+.modal textarea {
+    cursor: text !important;
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    resize: vertical !important;
+}
+
+.modal ::placeholder {
+    color: rgba(245, 247, 255, 0.8) !important;
+}
+
+.modal label {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+}
+
+.modal button {
+    cursor: pointer !important;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.95), rgba(142, 84, 233, 0.95)) !important;
+    color: #ffffff !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    border-radius: 6px !important;
+    border: none !important;
+    box-shadow: 0 6px 18px rgba(79, 172, 254, 0.35) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.modal button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 10px 24px rgba(79, 172, 254, 0.45) !important;
+}
+
+.modal button:focus {
+    outline: 2px solid rgba(79, 172, 254, 0.7) !important;
+    outline-offset: 2px !important;
+}
+
+/* Disable any floating elements that might interfere */
+.modal-open .floating-elements,
+.modal-open .particle-container {
+    display: none !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+/* Ensure modal backdrop doesn't interfere */
+.modal-backdrop {
+    pointer-events: none !important;
+    background: rgba(10, 12, 20, 0.55) !important; /* slightly brighter backdrop */
+}
+
+.modal-backdrop + .modal {
+    pointer-events: auto !important;
+}
+
+/* Force focus states */
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus {
+    outline: 2px solid rgba(79, 172, 254, 0.95) !important;
+    outline-offset: 2px !important;
+    border-color: rgba(79, 172, 254, 0.95) !important;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.25) !important;
+}
+
+/* Override any Bootstrap conflicts */
+.modal .form-control,
+.modal .form-select,
+.modal .btn {
+    pointer-events: auto !important;
+    user-select: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Force modal to be visible */
+.modal.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure proper stacking */
+.modal-dialog {
+    margin: 1.75rem auto !important;
+    max-width: 90% !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 0.5rem !important;
+        max-width: calc(100% - 1rem) !important;
+    }
+    
+    .modal-content {
+        border-radius: 10px !important;
+    }
+}
